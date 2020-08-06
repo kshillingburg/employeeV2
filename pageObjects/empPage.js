@@ -28,29 +28,20 @@ var empCommands = {
         }
         return this
     },
-    searchEmployee: function(employeeInfo) {
-        if(employeeInfo.name){
-            this
-                .setValue('@search', employeeInfo.name)
-        }
-        if(employeeInfo.phone){
-            this
-                .setValue('@name', employeeInfo.phone)
-        }
-        if(employeeInfo.email){
-            this
-                .setValue('@name', employeeInfo.email)
-        }
-        if(employeeInfo.title){
-            this
-                .setValue('@name', employeeInfo.title)
-        }
+    searchEmployee: function(inputInfo) {
+        this
+            .click('@search')
+            .setValue('@search', inputInfo)
+        this.api.useXpath()
+        this.click(`//li[text()="${employeeName}"]`)
+        this.api.useCss()
         return this
-    },
+    }
 }
 
 module.exports = {
     url: 'https://devmountain-qa.github.io/employee-manager-v2/build/index.html',
+    commands: [ empCOmmands ],
     elements: {
         title: '.titleText',
         save: '#saveBtn',
