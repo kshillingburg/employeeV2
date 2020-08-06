@@ -33,7 +33,7 @@ var empCommands = {
             .click('@search')
             .setValue('@search', inputInfo)
         this.api.useXpath()
-        this.click(`//li[text()="${employeeName}"]`)
+        this.click(`//li[text()="${inputInfo}"]`)
         this.api.useCss()
         return this
     }
