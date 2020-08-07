@@ -22,6 +22,12 @@ module.exports = {
         manager.expect.element('@titleName').text.to.equal('Mike Jones').before(500)
         manager
             .click('@clear')
+            .click('@search')
+            .searchEmployee('1111111111')
+            .click('@list')
+        manager.expect.element('@phone').text.to.equal('1111111111').before(500)
+        manager
+            .click('@clear')
     },
     // 'Add Employee Function': browser => {
     //     manager
