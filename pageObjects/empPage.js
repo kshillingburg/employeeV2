@@ -23,8 +23,8 @@ var empCommands = {
         }
         if(employeeInfo.title){
             this
-                .clearValue('@title')
-                .setValue('@title', employeeInfo.title)
+                .clearValue('@titleEntry')
+                .setValue('@titleEntry', employeeInfo.title)
         }
         return this
     },
@@ -32,16 +32,13 @@ var empCommands = {
         this
             .click('@search')
             .setValue('@search', inputInfo)
-        this.api.useXpath()
-        this.click(`//li[text()="${inputInfo}"]`)
-        this.api.useCss()
-        return this
+            .clickEmployee(inputInfo)
     }
 }
 
 module.exports = {
     url: 'https://devmountain-qa.github.io/employee-manager-v2/build/index.html',
-    commands: [ empCOmmands ],
+    commands: [ empCommands ],
     elements: {
         title: '.titleText',
         save: '#saveBtn',
@@ -50,7 +47,7 @@ module.exports = {
         name: '[name="nameEntry"]',
         phone: '[name="phoneEntry"]',
         email: '[name="emailEntry"]',
-        title: '[name="titleEntry"]',
+        titleEntry: '[name="titleEntry"]',
         titleName: '#employeeTitle',
         numberID: '#employeeID',
         list: '.listText',
