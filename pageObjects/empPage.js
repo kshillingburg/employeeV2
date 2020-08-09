@@ -50,9 +50,9 @@ module.exports = {
         titleEntry: '[name="titleEntry"]',
         titleName: '#employeeTitle',
         numberID: '#employeeID',
-        list: '.listText',
         search: '[name="searchBox"]',
         clear: '[name="clearSearch"]',
-        addEmployee: '[name="addEmployee"]'
+        addEmployee: '[name="addEmployee"]',
+        error: '.errorMessage'
         }
 }
