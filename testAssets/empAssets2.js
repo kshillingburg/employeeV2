@@ -2,12 +2,12 @@
 module.exports = (pageObject, employeeInfo) => {
     pageObject
         .click('@addEmployee')
-        .clickEmployee('NewEmployee')
+        .clickEmployee('New Employee')
         .editEmployee(employeeInfo)
         .click('@save')
-    pageObject.expect.element('@title').text.to.equal(newEmployee.name).before(500)
-    pageObject.expect.element('@name').value.to.equal(newEmployee.name)
-    pageObject.expect.element('@phone').value.to.equal(newEmployee.phone)
-    pageObject.expect.element('@email').value.to.equal(newEmployee.email)
-    pageObject.expect.element('@title').value.to.equal(newEmployee.title)
+    pageObject.expect.element('@titleName').text.to.equal(employeeInfo.name).before(500)
+    pageObject.expect.element('@name').value.to.equal(employeeInfo.name)
+    pageObject.expect.element('@phone').value.to.equal(employeeInfo.phone)
+    pageObject.expect.element('@email').value.to.equal(employeeInfo.email)
+    pageObject.expect.element('@titleEntry').value.to.equal(employeeInfo.title)
 }
